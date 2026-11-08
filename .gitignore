@@ -1,0 +1,6 @@
+# Archivos de otras entregas que viven en la misma carpeta
+*.docx
+*.pdf
+~$*
+Thumbs.db
+.DS_Store

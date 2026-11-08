@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto | Finanzas del Ser</title>
+  <meta name="description" content="Escríbenos para agendar tu asesoría en finanzas personales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/img/logo-provisional.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- IDENTIFICACIÓN + INTERACCIÓN: logo, nombre y menú -->
+  <header class="encabezado">
+    <div class="contenedor encabezado__barra">
+      <a class="marca" href="index.html">
+        <img src="assets/img/logo-provisional.svg" alt="Logo de Finanzas del Ser">
+        <span>Finanzas del Ser</span>
+      </a>
+      <button class="menu-boton" aria-expanded="false" aria-controls="menu-principal">Menú</button>
+      <nav class="nav" id="menu-principal" aria-label="Principal">
+        <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="quienes-somos.html">Quiénes somos</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <section class="hero hero--pagina">
+      <div class="contenedor">
+        <h1>Contacto</h1>
+        <p>Cuéntanos qué quieres lograr con tu dinero y te acompañamos.</p>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <div class="contenedor contacto-grid">
+        <!-- INTERACCIÓN: formulario de contacto (solo visual) -->
+        <form class="formulario" id="formulario-contacto">
+          <h2>Escríbenos</h2>
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+          </div>
+          <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" name="correo" autocomplete="email" required>
+          </div>
+          <div class="campo">
+            <label for="servicio">Servicio de interés</label>
+            <select id="servicio" name="servicio">
+              <option>Estructura de presupuestos</option>
+              <option>Ahorros con propósito</option>
+              <option>Compras conscientes</option>
+              <option>Educación sobre productos financieros</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+          </div>
+          <button class="boton boton--principal" type="submit">Enviar mensaje</button>
+          <p class="mensaje-envio" id="mensaje-envio" role="status"></p>
+        </form>
+
+        <aside class="info-contacto">
+          <h2>Habla con Valeria</h2>
+          <ul>
+            <li>Valeria Sarabia</li>
+            <li>WhatsApp: 302 345 9096</li>
+          </ul>
+          <a class="boton boton--principal" href="https://wa.me/573023459096?text=Hola%2C%20quiero%20agendar%20una%20asesor%C3%ADa%20con%20Finanzas%20del%20Ser">Agenda tu asesoría</a>
+          <h3 style="margin-top:2rem">Redes sociales</h3>
+          <div class="redes">
+            <a href="#" aria-label="Instagram de Finanzas del Ser"><img src="assets/icons/instagram.svg" alt=""></a>
+            <a href="#" aria-label="Facebook de Finanzas del Ser"><img src="assets/icons/facebook.svg" alt=""></a>
+            <a href="https://wa.me/573023459096?text=Hola%2C%20quiero%20agendar%20una%20asesor%C3%ADa%20con%20Finanzas%20del%20Ser" aria-label="WhatsApp de Finanzas del Ser"><img src="assets/icons/whatsapp.svg" alt=""></a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- IDENTIFICACIÓN: pie de página con contacto y año -->
+  <footer class="pie">
+    <div class="contenedor">
+      <div class="pie__grid">
+        <div>
+          <h2>Finanzas del Ser</h2>
+          <p>Haz de tus finanzas una fortaleza.</p>
+        </div>
+        <div>
+          <h2>Contacto</h2>
+          <ul>
+            <li>Valeria Sarabia</li>
+            <li><a href="https://wa.me/573023459096?text=Hola%2C%20quiero%20agendar%20una%20asesor%C3%ADa%20con%20Finanzas%20del%20Ser">WhatsApp: 302 345 9096</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Síguenos</h2>
+          <div class="redes">
+            <a href="#" aria-label="Instagram de Finanzas del Ser"><img src="assets/icons/instagram.svg" alt=""></a>
+            <a href="#" aria-label="Facebook de Finanzas del Ser"><img src="assets/icons/facebook.svg" alt=""></a>
+            <a href="https://wa.me/573023459096?text=Hola%2C%20quiero%20agendar%20una%20asesor%C3%ADa%20con%20Finanzas%20del%20Ser" aria-label="WhatsApp de Finanzas del Ser"><img src="assets/icons/whatsapp.svg" alt=""></a>
+          </div>
+        </div>
+      </div>
+      <div class="pie__legal">
+        <p>&copy; 2026 Finanzas del Ser. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
