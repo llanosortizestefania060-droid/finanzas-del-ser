@@ -24,6 +24,8 @@
   --azul-hover: #0D6089;    /* azul más oscuro para hover */
   --dorado-hover: #E3A21A;  /* dorado más oscuro para hover */
   --texto-suave: #3F5666;   /* texto secundario */
+  --whatsapp: #0E7A6D;      /* verde del botón flotante (contraste 5,2:1 con el ícono blanco) */
+  --whatsapp-hover: #0B6B5F;
   --borde-campo: #668291;   /* borde de campos del formulario (contraste 3:1 o más) */
 
   /* Tipografías (máximo 2 de Google Fonts) */
@@ -329,6 +331,26 @@ select:focus-visible, textarea:focus-visible {
 }
 .pie__legal p { margin: 0; }
 
+/* Botón flotante de WhatsApp: fijo en la esquina inferior derecha */
+.wpp-flotante {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 60;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--whatsapp);
+  border: 3px solid var(--blanco); /* lo separa del pie oscuro */
+  box-shadow: 0 6px 18px rgba(18, 48, 63, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, transform 0.2s;
+}
+.wpp-flotante img { width: 30px; height: 30px; }
+.wpp-flotante:hover { background: var(--whatsapp-hover); transform: scale(1.08); }
+
 /* ---------- 9. RESPONSIVO ---------- */
 /* Tablet: las tarjetas pasan de 4 a 2 columnas y los bloques se apilan */
 @media (max-width: 900px) {
@@ -358,4 +380,5 @@ select:focus-visible, textarea:focus-visible {
   .hero { padding: 3rem 0; }
   .seccion { padding: 3rem 0; }
   .botones .boton { width: 100%; }
+  .pie { padding-bottom: 5.5rem; } /* deja libre el final para el botón flotante */
 }

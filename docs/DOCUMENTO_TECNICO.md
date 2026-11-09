@@ -9,7 +9,7 @@ Regla de la docente: **si no puedes explicar una parte del código, no se consid
 
 ## 1. El proyecto en 30 segundos
 
-- **Cliente:** Finanzas del Ser, asesoría en finanzas personales (contacto: Valeria Sarabia).
+- **Cliente:** Finanzas del Ser, asesoría en finanzas personales (contacto: Estefania Llanos y Johan Morales, WhatsApp 301 788 5453).
 - **Qué se construyó:** un sitio de 4 páginas (Inicio, Servicios, Quiénes somos, Contacto) en **HTML, CSS y un poco de JavaScript**, sin frameworks.
 - **Idea central del diseño:** azul y turquesa transmiten confianza; el **dorado se reserva solo para los botones de acción**, así el usuario encuentra rápido qué hacer.
 - **Personalidad de marca:** cercana, consciente, confiable.
@@ -152,6 +152,7 @@ Si la docente pregunta "¿qué Gestalt aplicaste en el menú?": **proximidad** (
 - **Hover:** el botón dorado se oscurece y sube 2 px; las tarjetas suben 4 px; el menú muestra una línea dorada.
 - La página actual se marca en el menú, así el usuario siempre sabe dónde está.
 - Foco visible (borde dorado) para quien usa teclado.
+- **Botón flotante de WhatsApp:** círculo verde fijo en la esquina inferior derecha de todas las páginas (`position: fixed`). Da acceso a la acción principal desde cualquier punto del recorrido, sin volver al menú. Su verde `#0E7A6D` tiene contraste 5,22:1 con el ícono blanco y lleva un borde blanco para distinguirse del pie oscuro. En celular el pie tiene espacio extra abajo para que el botón no tape el texto legal.
 
 ---
 
@@ -210,18 +211,19 @@ Solo hace dos cosas:
 
 | Si te piden... | Ve a... |
 |---|---|
-| La paleta de colores | `css/styles.css`, líneas 16 a 46 (`:root`) |
-| Las fuentes | `css/styles.css` líneas 30 y 31 (variables `--fuente-*`) y el `<link>` de Google Fonts en el `<head>` de cada HTML |
-| La jerarquía H1, H2, párrafo | `css/styles.css`, líneas 64 a 67 y variables `--tam-*` |
-| El interlineado | `css/styles.css` línea 39 (`--interlineado: 1.6`) |
-| El menú con Flexbox | `css/styles.css`, líneas ~106 a 130 |
-| Las tarjetas con Grid | `css/styles.css`, línea 220 (`.tarjetas`) |
-| El hero asimétrico | `css/styles.css`, línea 185 (`.hero__grid`) |
-| El botón dorado y su hover | `css/styles.css`, líneas 171 y 172 |
-| El hover del menú | `css/styles.css`, línea 139 |
-| La página activa del menú | `css/styles.css` línea 141 y `aria-current="page"` en cada HTML |
-| La media query | `css/styles.css`, líneas 334 y 341 |
-| El menú del celular | `js/main.js` y `css/styles.css` línea 355 |
+| La paleta de colores | `css/styles.css`, líneas 16 a 48 (`:root`) |
+| Las fuentes | `css/styles.css` líneas 32 y 33 (variables `--fuente-*`) y el `<link>` de Google Fonts en el `<head>` de cada HTML |
+| La jerarquía H1, H2, párrafo | `css/styles.css`, líneas 66 a 69 y variables `--tam-*` |
+| El interlineado | `css/styles.css` línea 41 (`--interlineado: 1.6`) |
+| El menú con Flexbox | `css/styles.css`, líneas ~107 a 132 |
+| Las tarjetas con Grid | `css/styles.css`, línea 222 (`.tarjetas`) |
+| El hero asimétrico | `css/styles.css`, línea 187 (`.hero__grid`) |
+| El botón dorado y su hover | `css/styles.css`, líneas 173 y 174 |
+| El hover del menú | `css/styles.css`, línea 141 |
+| La página activa del menú | `css/styles.css` línea 143 y `aria-current="page"` en cada HTML |
+| La media query | `css/styles.css`, líneas 356 y 363 |
+| El menú del celular | `js/main.js` y `css/styles.css` línea 377 |
+| El botón flotante de WhatsApp | `css/styles.css`, línea ~335 (`.wpp-flotante`) y el `<a class="wpp-flotante">` al final de cada HTML |
 | El formulario | `contacto.html` y `js/main.js` |
 
 > Las líneas son aproximadas: si se edita el CSS, se desplazan. Para ubicarlas rápido, usa **Ctrl+F** con el nombre de la clase.
