@@ -9,8 +9,8 @@ Regla de la docente: **si no puedes explicar una parte del código, no se consid
 
 ## 1. El proyecto en 30 segundos
 
-- **Cliente:** Finanzas del Ser, asesoría en finanzas personales (contacto: Estefania Llanos y Johan Morales, WhatsApp 301 788 5453).
-- **Qué se construyó:** un sitio de 4 páginas (Inicio, Servicios, Quiénes somos, Contacto) en **HTML, CSS y un poco de JavaScript**, sin frameworks.
+- **Cliente:** Finanzas del Ser, asesoría en finanzas personales (contacto: Valeria Sarabia, WhatsApp 302 345 9096).
+- **Qué se construyó:** un sitio de 3 páginas (Inicio —que es la landing con servicios y modalidades—, Quiénes somos y Contacto) en **HTML, CSS y un poco de JavaScript**, sin frameworks.
 - **Idea central del diseño:** azules que transmiten confianza; el **amarillo se reserva solo para los botones de acción** (con texto azul profundo), así el usuario encuentra rápido qué hacer. Descriptor de marca: "Estrategia financiera con conciencia".
 - **Personalidad de marca:** cercana, consciente, confiable.
 
@@ -20,8 +20,7 @@ Regla de la docente: **si no puedes explicar una parte del código, no se consid
 
 ```
 /
-├── index.html            Inicio (hero, servicios, propuesta de valor)
-├── servicios.html        4 servicios + 3 modalidades de acompañamiento
+├── index.html            Inicio / landing (hero, 4 servicios, 3 modalidades, frase y CTA)
 ├── quienes-somos.html    Misión, dilema, objetivo, propuesta de valor
 ├── contacto.html         Formulario visual, WhatsApp, redes
 ├── css/styles.css        TODO el estilo (un solo archivo)
@@ -104,7 +103,7 @@ Valores calculados con la fórmula WCAG (ratio = (L1+0,05)/(L2+0,05)). **Pendien
 - **Por qué sans serif en pantalla:** a tamaños pequeños y con baja resolución, los remates de las serif se pierden; las sans serif se leen más limpio.
 - Los trazos manuscritos del logo son parte de la imagen, no una fuente del sitio.
 
-**Jerarquía (igual en las 4 páginas, definida con variables):**
+**Jerarquía (igual en las 3 páginas, definida con variables):**
 
 | Elemento | Tamaño | Peso | Celular (≤720 px) |
 |---|---|---|---|
@@ -146,11 +145,11 @@ Si la docente pregunta "¿qué Gestalt aplicaste en el menú?": **proximidad** (
 1. Llega a **Inicio** y lee el titular.
 2. Clic en **"Agenda tu cita"** (abre WhatsApp con un mensaje ya escrito). → **1 clic**.
 
-**Ruta alternativa:** Inicio → Servicios (1 clic) → "Agenda tu cita" (2 clics).
+**Ruta alternativa:** Inicio → bajar a Servicios (scroll) → "Agenda tu cita" (1 clic).
 
 **UI (consistencia):**
 
-- Menú y pie de página iguales en las 4 páginas.
+- Menú y pie de página iguales en las 3 páginas.
 - Un solo estilo de botón por tipo (`.boton--principal`, `.boton--secundario`).
 - **Hover:** el botón amarillo se oscurece y sube 2 px; las tarjetas suben 4 px; el menú muestra una línea amarilla.
 - La página actual se marca en el menú, así el usuario siempre sabe dónde está.
@@ -195,6 +194,13 @@ Hay **dos puntos de quiebre**:
 
 El truco del celular: en el bloque de 720 px se **redefinen las variables** `--tam-h1` y `--tam-h2`, y todo el sitio se ajusta solo.
 
+### 5.3b Contenido de la landing (de la landing y el docx de tu compañero)
+
+- **Home:** titular "Transforma tu relación con el dinero con guía y propósito", foto del frasco con planta, 4 tarjetas de servicios (el cuarto es **Servicios empresariales**), 3 modalidades, la frase "Todo lo que construyes…" y botón "Contáctanos".
+- **Quiénes somos:** quiénes somos, misión, visión, propuesta de valor, 4 valores (Respeto, Confidencialidad, Responsabilidad, Transparencia) e historia (2024, mujeres cabeza de hogar).
+- **Contacto:** formulario con casilla de autorización de datos, Valeria Sarabia, WhatsApp 302 345 9096, correo finanzas.vse@gmail.com e Instagram.
+- Los enlaces del menú son 3, así que el menú del celular cabe sin cambios.
+
 ### 5.4 Cómo probar el responsivo
 
 Clic derecho → **Inspeccionar** (F12) → ícono de dispositivo móvil → elegir un celular.
@@ -238,7 +244,7 @@ Solo hace dos cosas:
 | Minuto | Qué hacer | Qué decir |
 |---|---|---|
 | 1 | Presentar empresa y usuario tipo | "Finanzas del Ser ayuda a personas a gestionar su dinero de forma consciente. Mi usuario tipo es Camila, 29 años, que quiere ordenar sus gastos." |
-| 2 a 3 | Navegar el sitio en vivo: computador y luego celular (F12) | Recorrer las 4 páginas; mostrar el menú, el hover del botón, el cambio de 4 a 2 a 1 columnas y el menú Menú del celular |
+| 2 a 3 | Navegar el sitio en vivo: computador y luego celular (F12) | Recorrer las 3 páginas; mostrar el menú, el hover del botón, el cambio de 4 a 2 a 1 columnas y el menú Menú del celular |
 | 4 a 5 | Explicar **3 decisiones** | 1) Color: amarillo solo en acciones (complementario al azul). 2) Tipografía: Poppins como única fuente y jerarquía con variables. 3) Gestalt/UX: semejanza en botones y llegar a agendar en 1 clic |
 
 **Preguntas probables y respuesta corta:**
@@ -261,7 +267,7 @@ Solo hace dos cosas:
 - [ ] Una imagen **editada en Photoshop** (WebP o JPG, menos de 500 KB) y la captura de ese proceso para el manual
 - [ ] Fotos de servicios en mayor resolución (hoy son recortes de 406 px de los banners)
 - [ ] Texto de "Acompañamiento de grupos": hoy repite "En sesiones personalizadas." igual que 1:1 (probable error de copia)
-- [ ] Enlaces de Instagram y Facebook en el pie y en Contacto (hoy son `href="#"`)
+- [ ] Confirmar el usuario exacto de Instagram (el docx dice `@finanzas.del ser` con espacio; el sitio usa `@finanzas.delser`) y que el teléfono de Valeria pueda mostrarse
 - [ ] Borrar archivos sin uso: `assets/icons/presupuesto.svg`, `ahorro.svg`, `compras.svg`, `educacion.svg`, `assets/img/logo-provisional.svg` y `hero-provisional.svg`
 
 **Por cerrar:**

@@ -199,7 +199,7 @@ a:focus-visible, button:focus-visible {
 .hero .botones { margin-top: 1.5rem; }
 .hero__imagen img {
   width: 100%;
-  aspect-ratio: 406 / 340;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: var(--radio);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
@@ -316,14 +316,21 @@ a:focus-visible, button:focus-visible {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--azul-principal);
+  background: var(--azul-cielo);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s, transform 0.2s;
 }
-.redes a:hover { background: var(--azul-profundo); transform: translateY(-2px); }
+.redes a:hover { background: var(--amarillo); transform: translateY(-2px); }
 .redes img { width: 22px; height: 22px; }
+
+.campo--check { display: flex; gap: 0.6rem; align-items: flex-start; }
+.campo--check input { width: 1.25rem; height: 1.25rem; margin-top: 0.2rem; accent-color: var(--azul-profundo); }
+.campo--check label { font-weight: var(--peso-normal); margin: 0; }
+.frase { font-size: var(--tam-h2); font-weight: var(--peso-negrita); line-height: 1.25; max-width: 44rem; margin: 0 auto 1.5rem; }
+.historia { max-width: 46rem; }
+.info-contacto a { font-weight: var(--peso-medio); }
 
 /* ---------- 8. PIE DE PÁGINA Y BOTÓN FLOTANTE ---------- */
 .pie {
@@ -338,7 +345,7 @@ a:focus-visible, button:focus-visible {
   gap: 2rem;
 }
 .pie h2 { font-size: var(--tam-h3); font-weight: var(--peso-medio); }
-.pie__logo { height: 64px; width: auto; margin-bottom: 0.75rem; }
+.pie__logo { height: 80px; width: auto; margin-bottom: 0.75rem; }
 .pie__descriptor {
   font-size: var(--tam-pequeno);
   letter-spacing: 0.08em;
@@ -350,7 +357,7 @@ a:focus-visible, button:focus-visible {
 .pie li { margin-bottom: 0.4rem; }
 /* Íconos de redes en el pie: círculo blanco con ícono azul profundo */
 .pie .redes a { background: var(--blanco); }
-.pie .redes a:hover { background: var(--azul-cielo); }
+.pie .redes a:hover { background: var(--amarillo); }
 .pie__legal {
   margin-top: 2rem;
   padding-top: 1rem;
