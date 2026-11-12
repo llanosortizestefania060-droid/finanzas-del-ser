@@ -329,6 +329,43 @@ a:focus-visible, button:focus-visible {
 .campo--check input { width: 1.25rem; height: 1.25rem; margin-top: 0.2rem; accent-color: var(--azul-profundo); }
 .campo--check label { font-weight: var(--peso-normal); margin: 0; }
 .frase { font-size: var(--tam-h2); font-weight: var(--peso-negrita); line-height: 1.25; max-width: 44rem; margin: 0 auto 1.5rem; }
+.cierre {
+  position: relative;
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 3.5rem 2.5rem 2.25rem;
+  background: var(--azul-profundo);
+  color: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  --foco: var(--blanco);
+}
+/* Comilla grande decorativa */
+.cierre::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 6rem;
+  line-height: 1;
+  font-weight: var(--peso-negrita);
+  color: var(--amarillo);
+}
+.cierre p { margin-bottom: 1.25rem; }
+.cierre p:first-child { font-weight: var(--peso-medio); font-size: 1.5rem; line-height: 1.4; }
+.cierre footer {
+  display: inline-block;
+  max-width: 34rem;
+  font-size: var(--tam-texto);
+  font-weight: var(--peso-ligero);
+  color: var(--azul-niebla);
+  padding-top: 1.25rem;
+  border-top: 3px solid var(--amarillo);
+}
 .historia { max-width: 46rem; }
 .info-contacto a { font-weight: var(--peso-medio); }
 
@@ -397,6 +434,8 @@ a:focus-visible, button:focus-visible {
 
 /* Celular: tarjetas en 1 columna, menú hamburguesa y títulos más pequeños */
 @media (max-width: 720px) {
+  .cierre { padding: 3.5rem 1.5rem 1.75rem; font-size: 1.0625rem; }
+  .cierre p:first-child { font-size: 1.25rem; }
   :root { --tam-h1: 2rem; --tam-h2: 1.5rem; }
   .tarjetas, .tarjetas--3 { grid-template-columns: 1fr; }
   .menu-boton { display: block; }

@@ -3,7 +3,7 @@
 Guía de estudio para la sustentación (5 minutos + 2 preguntas de la docente).
 Regla de la docente: **si no puedes explicar una parte del código, no se considera tuya.** Este documento está pensado para que puedas explicar cada parte.
 
-> Estado: sitio funcional con el **branding oficial** (manual de marca de Estefania y Johan). Logo tomado de un PNG; falta el SVG de Illustrator. Ver la sección 9.
+> Estado: sitio funcional con el **branding oficial** (manual de marca de Estefania y Johan). Logo en SVG vectorizado desde el PNG de la marca. Ver la sección 9.
 
 ---
 
@@ -26,7 +26,7 @@ Regla de la docente: **si no puedes explicar una parte del código, no se consid
 ├── css/styles.css        TODO el estilo (un solo archivo)
 ├── js/main.js            Menú del celular y mensaje del formulario
 ├── assets/
-│   ├── img/              logos (azul, blanco), favicon, fotos de servicios y modalidades (WebP)
+│   ├── img/              logos SVG (azul, blanco), favicon, fotos de servicios y modalidades (WebP)
 │   └── icons/            íconos SVG de redes: blancos y versión `-oscuro` (azul profundo)
 └── docs/DOCUMENTO_TECNICO.md   este documento
 ```
@@ -253,6 +253,7 @@ Solo hace dos cosas:
 - **¿Por qué `rem` y no `px`?** Respeta el tamaño de letra que el usuario configuró en su navegador.
 - **¿Para qué sirven las variables CSS?** Para cambiar la identidad en un solo lugar y mantener consistencia.
 - **¿Qué hace la media query?** Cuando la pantalla es de 900 px o menos reorganiza el diseño; con 720 px o menos pasa a una columna y activa el menú del celular.
+- **¿Cómo obtuvieron el SVG del logo?** Se vectorizó el PNG de la marca: se amplió la imagen, se detectaron los contornos de las formas y se convirtieron en curvas Bézier. Por eso se puede agrandar sin perder nitidez.
 - **¿Por qué el logo debe ser vectorial?** Porque se define con fórmulas matemáticas (puntos y curvas), no con píxeles: se puede agrandar sin pixelarse.
 - **¿Por qué esos formatos de imagen?** SVG para logo e íconos (vectorial, liviano); WebP o JPG para fotos (menos peso, carga más rápido); PNG solo si se necesita fondo transparente.
 - **¿Cómo cuidaste la accesibilidad?** Contraste AA, `alt` en imágenes, foco visible, enlace para saltar al contenido, `aria-current` y `aria-expanded`.
@@ -263,11 +264,11 @@ Solo hace dos cosas:
 
 **Por reemplazar cuando el compañero entregue los originales:**
 
-- [ ] Logo en **SVG** hecho en Illustrator (hoy es un PNG recortado de 276 px: `assets/img/logo-azul.png` y `logo-blanco.png`; el enunciado exige SVG)
+- [x] Logo en **SVG** (`assets/img/logo-azul.svg` y `logo-blanco.svg`): vectorizado a partir del PNG de la marca, trazando el contorno y convirtiéndolo en curvas Bézier. En el manual se debe decir que se obtuvo así, no que se dibujó en Illustrator
 - [ ] Una imagen **editada en Photoshop** (WebP o JPG, menos de 500 KB) y la captura de ese proceso para el manual
 - [ ] Fotos de servicios en mayor resolución (hoy son recortes de 406 px de los banners)
 - [ ] Texto de "Acompañamiento de grupos": hoy repite "En sesiones personalizadas." igual que 1:1 (probable error de copia)
-- [ ] Confirmar el usuario exacto de Instagram (el docx dice `@finanzas.del ser` con espacio; el sitio usa `@finanzas.delser`) y que el teléfono de Valeria pueda mostrarse
+- [ ] Confirmar que el teléfono de Valeria pueda mostrarse (Instagram ya quedó como `@finanzas.delser`, sin espacio)
 - [ ] Borrar archivos sin uso: `assets/icons/presupuesto.svg`, `ahorro.svg`, `compras.svg`, `educacion.svg`, `assets/img/logo-provisional.svg` y `hero-provisional.svg`
 
 **Por cerrar:**
