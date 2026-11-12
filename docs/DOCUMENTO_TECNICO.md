@@ -3,7 +3,7 @@
 Guía de estudio para la sustentación (5 minutos + 2 preguntas de la docente).
 Regla de la docente: **si no puedes explicar una parte del código, no se considera tuya.** Este documento está pensado para que puedas explicar cada parte.
 
-> Estado: sitio funcional con **logo e imagen del hero provisionales**. Ver la sección 9 para lo que falta.
+> Estado: sitio funcional con el **branding oficial** (manual de marca de Estefania y Johan). Logo tomado de un PNG; falta el SVG de Illustrator. Ver la sección 9.
 
 ---
 
@@ -11,7 +11,7 @@ Regla de la docente: **si no puedes explicar una parte del código, no se consid
 
 - **Cliente:** Finanzas del Ser, asesoría en finanzas personales (contacto: Estefania Llanos y Johan Morales, WhatsApp 301 788 5453).
 - **Qué se construyó:** un sitio de 4 páginas (Inicio, Servicios, Quiénes somos, Contacto) en **HTML, CSS y un poco de JavaScript**, sin frameworks.
-- **Idea central del diseño:** azul y turquesa transmiten confianza; el **dorado se reserva solo para los botones de acción**, así el usuario encuentra rápido qué hacer.
+- **Idea central del diseño:** azules que transmiten confianza; el **amarillo se reserva solo para los botones de acción** (con texto azul profundo), así el usuario encuentra rápido qué hacer. Descriptor de marca: "Estrategia financiera con conciencia".
 - **Personalidad de marca:** cercana, consciente, confiable.
 
 ---
@@ -21,14 +21,14 @@ Regla de la docente: **si no puedes explicar una parte del código, no se consid
 ```
 /
 ├── index.html            Inicio (hero, servicios, propuesta de valor)
-├── servicios.html        4 tarjetas de servicios
+├── servicios.html        4 servicios + 3 modalidades de acompañamiento
 ├── quienes-somos.html    Misión, dilema, objetivo, propuesta de valor
 ├── contacto.html         Formulario visual, WhatsApp, redes
 ├── css/styles.css        TODO el estilo (un solo archivo)
 ├── js/main.js            Menú del celular y mensaje del formulario
 ├── assets/
-│   ├── img/              logo-provisional.svg, hero-provisional.svg
-│   └── icons/            íconos SVG de servicios y redes
+│   ├── img/              logos (azul, blanco), favicon, fotos de servicios y modalidades (WebP)
+│   └── icons/            íconos SVG de redes: blancos y versión `-oscuro` (azul profundo)
 └── docs/DOCUMENTO_TECNICO.md   este documento
 ```
 
@@ -67,70 +67,73 @@ Detalles que conviene saber explicar:
 
 | Color | HEX | Qué comunica | Dónde se usa |
 |---|---|---|---|
-| Azul | `#117AAD` | Confianza, orden | Logo, títulos de marca, fondos de bandas, enlaces |
-| Turquesa | `#078294` | Crecimiento, equilibrio | Final del degradado del hero, banda de llamado a la acción, íconos de redes en el pie |
-| Oscuro | `#12303F` | Seriedad, legibilidad | Texto principal y pie de página |
-| Claro | `#F3F9FB` | Limpieza, calma | Fondos suaves de sección |
-| Dorado | `#F4B93A` | Acción, valor (monedas) | **Solo botones principales** |
+| Azul principal | `#127A9E` | Confianza, orden | Fondos del hero y bandas, enlaces, bordes de campos (40 % del sitio) |
+| Azul profundo | `#0B4A62` | Seriedad, legibilidad | Texto principal, pie de página, texto de botones (25 %) |
+| Azul cielo | `#7DBFD6` | Frescura | Detalles de apoyo: anillo de foco de campos, hover de íconos (20 %) |
+| Azul niebla | `#E3F0F5` | Calma, limpieza | Fondos suaves de sección y formulario (10 %) |
+| Amarillo | `#FFC72C` (hover `#E6AC00`) | Acción, valor | **Solo botones** y la barra decorativa sobre títulos de tarjeta (5 %) |
 
-- **Armonía:** el azul y el dorado son casi **complementarios** (opuestos en el círculo cromático): dan contraste y hacen que el botón destaque. El turquesa es **análogo** al azul (vecino): da cohesión. *(Verifica la posición exacta en Adobe Color antes de escribirlo en el manual.)*
+- **Armonía:** el azul y el amarillo son casi **complementarios** (opuestos en el círculo cromático): dan contraste y hacen que el botón destaque. Los cuatro azules son **monocromáticos** (un solo tono con distinta luminosidad): dan cohesión. Proporción del manual: 40/25/20/10/5.
 - **Por qué RGB/HEX y no CMYK:** las pantallas emiten luz y mezclan rojo, verde y azul. CMYK es para impresión con tintas.
-- **Colores de hover:** `--azul-hover` y `--dorado-hover` son versiones más oscuras del mismo color, para que el cambio se note sin cambiar de identidad.
+- **Hover:** el amarillo pasa a `#E6AC00` (`--amarillo-hover`); el contorno de campos pasa a azul profundo. Regla del manual: nunca texto amarillo sobre blanco ni texto blanco sobre amarillo (1,56).
 
-**Contraste verificado (fórmula WCAG; confirmar con WebAIM y guardar captura):**
+**Contraste verificado con la API de WebAIM (valores truncados a 2 decimales, como los muestra su página):**
 
 | Combinación | Ratio | Resultado |
 |---|---|---|
-| Texto oscuro sobre blanco | 13,81 | AA y AAA |
-| Texto oscuro sobre dorado (botón) | 7,79 | AA y AAA |
-| Blanco sobre azul `#117AAD` | 4,76 | AA |
-| Blanco sobre turquesa `#078294` | 4,54 | AA (justo) |
-| Texto suave `#3F5666` sobre blanco | 7,68 | AA y AAA |
+| Azul profundo sobre blanco (texto) | 9,68 | AA y AAA |
+| Azul profundo sobre amarillo `#FFC72C` (botón) | 6,20 | AA |
+| Azul profundo sobre amarillo hover `#E6AC00` | 4,73 | AA |
+| Blanco sobre azul principal `#127A9E` | 4,88 | AA |
+| Blanco sobre azul profundo `#0B4A62` (pie) | 9,68 | AA y AAA |
+| Azul profundo sobre azul niebla `#E3F0F5` | 8,32 | AA y AAA |
+| Azul profundo sobre azul cielo `#7DBFD6` | 4,74 | AA |
+| Amarillo sobre azul principal (límite del botón) | 3,13 | Cumple 3:1 de componentes |
 
-Los ratios de azul y turquesa están cerca de 4,5: **no se deben aclarar** esos colores sin volver a medir.
-Se corrigieron dos casos que fallaban: el borde de los campos del formulario (ahora `--borde-campo`, mínimo 3:1 para componentes) y el mensaje de envío (ahora `--azul-hover`).
+Valores calculados con la fórmula WCAG (ratio = (L1+0,05)/(L2+0,05)). **Pendiente:** repetir 2 o 3 combinaciones en webaim.org/resources/contrastchecker y tomar captura. El azul principal sobre niebla da 4,19: por eso no se usa para texto pequeño sobre niebla (el texto va en azul profundo).
+
 
 ### 4.2 Tipografía
 
 | Uso | Fuente | Familia | Personalidad |
 |---|---|---|---|
-| Títulos y botones | **Poppins** | Sans serif geométrica | Moderna, amable, redondeada |
-| Texto corrido | **Nunito Sans** | Sans serif humanista | Cálida, muy legible en pantalla |
+| Todo el sitio | **Poppins** (pesos 300, 400, 500, 700) | Sans serif geométrica | Moderna, amable, redondeada |
 
-- **Por qué combinan:** ambas son sans serif, pero Poppins es más geométrica y pesada (para destacar) y Nunito Sans es más suave y ligera (para leer). Hay **contraste de peso, no competencia** entre dos fuentes parecidas.
+
+- **Una sola familia (lo pide el manual y el enunciado permite máx. 2):** la jerarquía se logra con **peso y tamaño**, no con otra fuente: 700 títulos, 500 subtítulos y botones, 400 párrafos, 300 texto pequeño.
 - **Por qué sans serif en pantalla:** a tamaños pequeños y con baja resolución, los remates de las serif se pierden; las sans serif se leen más limpio.
-- La fuente manuscrita del portafolio original **no se usa en el sitio** (el enunciado permite máximo 2 fuentes): solo debería vivir dentro del logo.
+- Los trazos manuscritos del logo son parte de la imagen, no una fuente del sitio.
 
 **Jerarquía (igual en las 4 páginas, definida con variables):**
 
 | Elemento | Tamaño | Peso | Celular (≤720 px) |
 |---|---|---|---|
 | H1 | 2,5 rem (40 px) | 700 | 2 rem (32 px) |
-| H2 | 1,75 rem (28 px) | 600 | 1,5 rem (24 px) |
-| H3 | 1,25 rem (20 px) | 600 | igual |
+| H2 | 1,75 rem (28 px) | 700 | 1,5 rem (24 px) |
+| H3 | 1,25 rem (20 px) | 500 | igual |
 | Párrafo | 1 rem (16 px) | 400 | igual |
-| Texto pequeño | 0,875 rem (14 px) | 400 | igual |
+| Texto pequeño | 0,8125 rem (13 px) | 300 | igual |
 
 - **Interlineado 1,6** en el texto: el espacio entre líneas evita que el ojo se pierda al pasar de una línea a otra.
 - Se usa `rem` (no `px`) para que el tamaño respete la configuración del usuario.
 
 ### 4.3 Formas, balance, peso y dirección visual
 
-- **Formas:** esquinas redondeadas (`--radio: 16px`) en tarjetas y formularios, y botones en forma de píldora. Comunican cercanía y amabilidad, que es la personalidad de la marca.
+- **Formas:** esquinas redondeadas de 20 px (`--radio`) en tarjetas y formularios, y botones en forma de píldora. Comunica cercanía. Cada tarjeta lleva una **barra amarilla** sobre el título (sello del manual).
 - **Balance del Home: asimétrico.** El texto ocupa más ancho (columna izquierda, `1.1fr`) y la imagen menos (`0.9fr`). Es más dinámico que un diseño simétrico y deja claro dónde leer primero.
 - **Peso visual (qué ve primero el usuario):**
-  1. El **titular H1** (grande, blanco y en negrita sobre el degradado).
-  2. El **botón dorado** (único color cálido de la pantalla, por eso destaca).
-- **Dirección visual:** etiqueta → H1 → párrafo → **botón dorado**. La lectura de izquierda a derecha y de arriba hacia abajo termina en el botón principal. La imagen de barras que sube refuerza la idea de crecimiento.
+  1. El **titular H1** (grande, blanco y en negrita sobre el azul principal).
+  2. El **botón amarillo** (único color cálido de la pantalla, por eso destaca).
+- **Dirección visual:** etiqueta → H1 → párrafo → **botón amarillo**. La lectura de izquierda a derecha y de arriba hacia abajo termina en el botón principal. La imagen de barras que sube refuerza la idea de crecimiento.
 
 ### 4.4 Principios de Gestalt
 
 | Principio | Dónde está | Para qué le sirve al usuario |
 |---|---|---|
-| **Semejanza** | Todos los botones principales son dorados con la misma forma; las 4 tarjetas son iguales | Reconoce de inmediato qué se puede presionar y que los servicios son del mismo nivel |
+| **Semejanza** | Todos los botones principales son amarillos con la misma forma; las 4 tarjetas de servicio y las 3 de modalidades comparten el mismo estilo | Reconoce de inmediato qué se puede presionar y que los servicios son del mismo nivel |
 | **Proximidad** | Dentro de cada tarjeta: ícono, título y texto están juntos y separados de otras tarjetas por `gap` | Entiende que ese ícono, título y texto forman un solo servicio |
 | **Continuidad** | Los links del menú en una línea horizontal; la lectura del hero hacia el botón | El ojo sigue la línea sin esfuerzo |
-| **Figura-fondo** | Texto blanco sobre el degradado azul; tarjetas blancas sobre fondo claro | Separa lo importante del fondo |
+| **Figura-fondo** | Texto blanco sobre el azul principal; tarjetas blancas sobre fondo claro | Separa lo importante del fondo |
 
 Si la docente pregunta "¿qué Gestalt aplicaste en el menú?": **proximidad** (los links están juntos, separados del logo), **semejanza** (mismo estilo y tipografía) y **continuidad** (alineados en una línea).
 
@@ -141,18 +144,18 @@ Si la docente pregunta "¿qué Gestalt aplicaste en el menú?": **proximidad** (
 **Ruta principal (máximo 3 clics):**
 
 1. Llega a **Inicio** y lee el titular.
-2. Clic en **"Agenda tu asesoría"** (abre WhatsApp con un mensaje ya escrito). → **1 clic**.
+2. Clic en **"Agenda tu cita"** (abre WhatsApp con un mensaje ya escrito). → **1 clic**.
 
-**Ruta alternativa:** Inicio → Servicios (1 clic) → "Agenda tu asesoría" (2 clics).
+**Ruta alternativa:** Inicio → Servicios (1 clic) → "Agenda tu cita" (2 clics).
 
 **UI (consistencia):**
 
 - Menú y pie de página iguales en las 4 páginas.
 - Un solo estilo de botón por tipo (`.boton--principal`, `.boton--secundario`).
-- **Hover:** el botón dorado se oscurece y sube 2 px; las tarjetas suben 4 px; el menú muestra una línea dorada.
+- **Hover:** el botón amarillo se oscurece y sube 2 px; las tarjetas suben 4 px; el menú muestra una línea amarilla.
 - La página actual se marca en el menú, así el usuario siempre sabe dónde está.
-- Foco visible (borde dorado) para quien usa teclado.
-- **Botón flotante de WhatsApp:** círculo verde fijo en la esquina inferior derecha de todas las páginas (`position: fixed`). Da acceso a la acción principal desde cualquier punto del recorrido, sin volver al menú. Su verde `#0E7A6D` tiene contraste 5,22:1 con el ícono blanco y lleva un borde blanco para distinguirse del pie oscuro. En celular el pie tiene espacio extra abajo para que el botón no tape el texto legal.
+- Foco visible (contorno azul profundo; blanco sobre fondos azules) para quien usa teclado.
+- **Botón flotante de WhatsApp:** círculo amarillo con ícono azul profundo fijo en la esquina inferior derecha de todas las páginas (`position: fixed`). Da acceso a la acción principal desde cualquier punto del recorrido, sin volver al menú. Su verde `#0E7A6D` tiene contraste 5,21:1 con el ícono blanco y lleva un borde blanco para distinguirse del pie oscuro. En celular el pie tiene espacio extra abajo para que el botón no tape el texto legal.
 
 ---
 
@@ -164,9 +167,9 @@ Toda la identidad está en un solo bloque, `:root`, al inicio del archivo:
 
 ```css
 :root {
-  --azul: #117AAD;
-  --dorado: #F4B93A;
-  --fuente-titulos: "Poppins", Arial, sans-serif;
+  --azul-principal: #127A9E;
+  --amarillo: #FFC72C;
+  --fuente: "Poppins", Arial, sans-serif;
   --tam-h1: 2.5rem;
   /* ... */
 }
@@ -211,19 +214,19 @@ Solo hace dos cosas:
 
 | Si te piden... | Ve a... |
 |---|---|
-| La paleta de colores | `css/styles.css`, líneas 16 a 48 (`:root`) |
-| Las fuentes | `css/styles.css` líneas 32 y 33 (variables `--fuente-*`) y el `<link>` de Google Fonts en el `<head>` de cada HTML |
-| La jerarquía H1, H2, párrafo | `css/styles.css`, líneas 66 a 69 y variables `--tam-*` |
-| El interlineado | `css/styles.css` línea 41 (`--interlineado: 1.6`) |
-| El menú con Flexbox | `css/styles.css`, líneas ~107 a 132 |
-| Las tarjetas con Grid | `css/styles.css`, línea 222 (`.tarjetas`) |
-| El hero asimétrico | `css/styles.css`, línea 187 (`.hero__grid`) |
-| El botón dorado y su hover | `css/styles.css`, líneas 173 y 174 |
-| El hover del menú | `css/styles.css`, línea 141 |
-| La página activa del menú | `css/styles.css` línea 143 y `aria-current="page"` en cada HTML |
-| La media query | `css/styles.css`, líneas 356 y 363 |
-| El menú del celular | `js/main.js` y `css/styles.css` línea 377 |
-| El botón flotante de WhatsApp | `css/styles.css`, línea ~335 (`.wpp-flotante`) y el `<a class="wpp-flotante">` al final de cada HTML |
+| La paleta de colores | `css/styles.css`, líneas 17 a 55 (`:root`) |
+| Las fuentes | `css/styles.css` línea ~31 (variable `--fuente`) y el `<link>` de Google Fonts en el `<head>` de cada HTML |
+| La jerarquía H1, H2, párrafo | `css/styles.css`, líneas ~75 a 78 y variables `--tam-*` |
+| El interlineado | `css/styles.css` `--interlineado: 1.6` en `:root` |
+| El menú con Flexbox | `css/styles.css`, líneas ~103 a 150 |
+| Las tarjetas con Grid | `css/styles.css`, línea 225 (`.tarjetas`) |
+| El hero asimétrico | `css/styles.css`, línea 185 (`.hero__grid`) |
+| El botón amarillo y su hover | `css/styles.css`, líneas 168 y 169 |
+| El hover del menú | `css/styles.css`, línea 136 |
+| La página activa del menú | `css/styles.css` línea 137 y `aria-current="page"` en cada HTML |
+| La media query | `css/styles.css`, líneas 384 y 392 |
+| El menú del celular | `js/main.js` y `css/styles.css` línea 392 en adelante |
+| El botón flotante de WhatsApp | `css/styles.css`, línea 363 (`.wpp-flotante`) y el `<a class="wpp-flotante">` al final de cada HTML |
 | El formulario | `contacto.html` y `js/main.js` |
 
 > Las líneas son aproximadas: si se edita el CSS, se desplazan. Para ubicarlas rápido, usa **Ctrl+F** con el nombre de la clase.
@@ -236,11 +239,11 @@ Solo hace dos cosas:
 |---|---|---|
 | 1 | Presentar empresa y usuario tipo | "Finanzas del Ser ayuda a personas a gestionar su dinero de forma consciente. Mi usuario tipo es Camila, 29 años, que quiere ordenar sus gastos." |
 | 2 a 3 | Navegar el sitio en vivo: computador y luego celular (F12) | Recorrer las 4 páginas; mostrar el menú, el hover del botón, el cambio de 4 a 2 a 1 columnas y el menú Menú del celular |
-| 4 a 5 | Explicar **3 decisiones** | 1) Color: dorado solo en acciones (complementario al azul). 2) Tipografía: Poppins + Nunito Sans y jerarquía con variables. 3) Gestalt/UX: semejanza en botones y llegar a agendar en 1 clic |
+| 4 a 5 | Explicar **3 decisiones** | 1) Color: amarillo solo en acciones (complementario al azul). 2) Tipografía: Poppins como única fuente y jerarquía con variables. 3) Gestalt/UX: semejanza en botones y llegar a agendar en 1 clic |
 
 **Preguntas probables y respuesta corta:**
 
-- **¿Por qué el botón es dorado?** Es el único color cálido y es casi complementario al azul: genera contraste y peso visual, así el usuario encuentra rápido la acción. Además el texto oscuro sobre dorado da 7,79:1.
+- **¿Por qué el botón es amarillo?** Es el único color cálido y es casi complementario al azul: genera contraste y peso visual, así el usuario encuentra rápido la acción. Además el texto oscuro sobre dorado da 7,79:1.
 - **¿Por qué `rem` y no `px`?** Respeta el tamaño de letra que el usuario configuró en su navegador.
 - **¿Para qué sirven las variables CSS?** Para cambiar la identidad en un solo lugar y mantener consistencia.
 - **¿Qué hace la media query?** Cuando la pantalla es de 900 px o menos reorganiza el diseño; con 720 px o menos pasa a una columna y activa el menú del celular.
@@ -252,21 +255,24 @@ Solo hace dos cosas:
 
 ## 9. Estado actual y pendientes
 
-**Provisional (a reemplazar cuando el compañero entregue):**
+**Por reemplazar cuando el compañero entregue los originales:**
 
-- [ ] `assets/img/logo-provisional.svg` → logo hecho en Illustrator (SVG)
-- [ ] `assets/img/hero-provisional.svg` → imagen editada en Photoshop (WebP o JPG, menos de 500 KB)
+- [ ] Logo en **SVG** hecho en Illustrator (hoy es un PNG recortado de 276 px: `assets/img/logo-azul.png` y `logo-blanco.png`; el enunciado exige SVG)
+- [ ] Una imagen **editada en Photoshop** (WebP o JPG, menos de 500 KB) y la captura de ese proceso para el manual
+- [ ] Fotos de servicios en mayor resolución (hoy son recortes de 406 px de los banners)
+- [ ] Texto de "Acompañamiento de grupos": hoy repite "En sesiones personalizadas." igual que 1:1 (probable error de copia)
 - [ ] Enlaces de Instagram y Facebook en el pie y en Contacto (hoy son `href="#"`)
+- [ ] Borrar archivos sin uso: `assets/icons/presupuesto.svg`, `ahorro.svg`, `compras.svg`, `educacion.svg`, `assets/img/logo-provisional.svg` y `hero-provisional.svg`
 
 **Por cerrar:**
 
 - [ ] Capturas de WebAIM con al menos 2 combinaciones
 - [ ] Capturas numeradas del sitio para el manual
-- [ ] Citar créditos de cualquier foto de banco libre o ilustración usada
+- [ ] Citar créditos de las fotos e ilustraciones usadas
 - [ ] Declarar el uso de IA en las referencias del manual
 - [ ] Publicar en GitHub Pages o Netlify Drop (opcional)
 
-**Cómo cambiar la identidad final:** reemplaza los archivos de `assets/img/` con el mismo nombre (o actualiza el `src` en los 4 HTML) y ajusta las variables de `:root`.
+**Cómo cambiar la identidad final:** reemplaza los archivos de `assets/img/` con el mismo nombre (o actualiza el `src` en los HTML) y ajusta las variables de `:root`.
 
 ---
 

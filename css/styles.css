@@ -1,50 +1,52 @@
 /* =====================================================================
    Finanzas del Ser · Hoja de estilos única para todo el sitio
+   Basada en el Manual de branding e identidad visual.
    Orden del archivo:
-   1. Variables (paleta, fuentes, tamaños)  ← aquí se cambia la identidad
+   1. Variables (paleta, fuente, tamaños)  ← aquí se cambia la identidad
    2. Base y tipografía
    3. Encabezado y menú
    4. Botones
    5. Hero y secciones
    6. Tarjetas (Grid)
    7. Páginas internas (Quiénes somos, Contacto)
-   8. Pie de página
+   8. Pie de página y botón flotante
    9. Responsivo (media queries)
    ===================================================================== */
 
 /* ---------- 1. VARIABLES ---------- */
 :root {
-  /* Paleta (5 colores + blanco) */
-  --azul: #117AAD;          /* color principal: confianza, orden */
-  --turquesa: #078294;      /* apoyo: crecimiento, equilibrio */
-  --oscuro: #12303F;        /* texto y pie de página */
-  --claro: #F3F9FB;         /* fondos suaves de sección */
-  --dorado: #F4B93A;        /* acento: botones de acción */
+  /* Paleta del manual de branding (5 colores + blanco) */
+  --azul-principal: #127A9E;  /* fondos, títulos y encabezados */
+  --azul-profundo: #0B4A62;   /* textos y fondos oscuros */
+  --azul-cielo: #7DBFD6;      /* detalles de apoyo */
+  --azul-niebla: #E3F0F5;     /* fondos suaves y tarjetas */
+  --amarillo: #FFC72C;        /* SOLO botones de acción */
+  --amarillo-hover: #E6AC00;  /* amarillo al pasar el mouse */
   --blanco: #FFFFFF;
-  --azul-hover: #0D6089;    /* azul más oscuro para hover */
-  --dorado-hover: #E3A21A;  /* dorado más oscuro para hover */
-  --texto-suave: #3F5666;   /* texto secundario */
-  --whatsapp: #0E7A6D;      /* verde del botón flotante (contraste 5,2:1 con el ícono blanco) */
-  --whatsapp-hover: #0B6B5F;
-  --borde-campo: #668291;   /* borde de campos del formulario (contraste 3:1 o más) */
 
-  /* Tipografías (máximo 2 de Google Fonts) */
-  --fuente-titulos: "Poppins", Arial, sans-serif;
-  --fuente-texto: "Nunito Sans", Arial, sans-serif;
+  /* Tipografía: una sola familia (Poppins) con distintos pesos */
+  --fuente: "Poppins", Arial, sans-serif;
+  --peso-ligero: 300;
+  --peso-normal: 400;
+  --peso-medio: 500;
+  --peso-negrita: 700;
 
   /* Jerarquía tipográfica (igual en todas las páginas) */
-  --tam-h1: 2.5rem;    /* 40 px */
-  --tam-h2: 1.75rem;   /* 28 px */
-  --tam-h3: 1.25rem;   /* 20 px */
-  --tam-texto: 1rem;   /* 16 px */
-  --tam-pequeno: 0.875rem; /* 14 px */
-  --interlineado: 1.6;
+  --tam-h1: 2.5rem;        /* 40 px */
+  --tam-h2: 1.75rem;       /* 28 px */
+  --tam-h3: 1.25rem;       /* 20 px */
+  --tam-texto: 1rem;       /* 16 px */
+  --tam-pequeno: 0.8125rem; /* 13 px */
+  --interlineado: 1.6;     /* párrafos */
 
   /* Formas */
-  --radio: 16px;       /* esquinas redondeadas: cercanía */
+  --radio: 20px;           /* esquinas redondeadas: cercanía */
   --radio-boton: 999px;
-  --sombra: 0 6px 20px rgba(18, 48, 63, 0.10);
+  --sombra: 0 6px 20px rgba(11, 74, 98, 0.12);
   --ancho-max: 1100px;
+
+  /* Color del contorno de foco (cambia en fondos oscuros) */
+  --foco: var(--azul-profundo);
 }
 
 /* ---------- 2. BASE Y TIPOGRAFÍA ---------- */
@@ -52,24 +54,26 @@
 
 body {
   margin: 0;
-  font-family: var(--fuente-texto);
+  font-family: var(--fuente);
+  font-weight: var(--peso-normal);
   font-size: var(--tam-texto);
   line-height: var(--interlineado);
-  color: var(--oscuro);
+  color: var(--azul-profundo);
   background: var(--blanco);
 }
 
-h1, h2, h3 {
-  font-family: var(--fuente-titulos);
-  margin: 0 0 0.75rem;
-}
-h1 { font-size: var(--tam-h1); font-weight: 700; line-height: 1.2; }
-h2 { font-size: var(--tam-h2); font-weight: 600; line-height: 1.3; }
-h3 { font-size: var(--tam-h3); font-weight: 600; line-height: 1.3; }
+h1, h2, h3 { margin: 0 0 0.75rem; }
+h1 { font-size: var(--tam-h1); font-weight: var(--peso-negrita); line-height: 1.2; }
+h2 { font-size: var(--tam-h2); font-weight: var(--peso-negrita); line-height: 1.25; }
+h3 { font-size: var(--tam-h3); font-weight: var(--peso-medio); line-height: 1.3; }
 p  { margin: 0 0 1rem; }
-small, .texto-pequeno { font-size: var(--tam-pequeno); }
+small, .texto-pequeno {
+  font-size: var(--tam-pequeno);
+  font-weight: var(--peso-ligero);
+  line-height: 1.5;
+}
 img { max-width: 100%; height: auto; display: block; }
-a { color: var(--azul); }
+a { color: var(--azul-principal); }
 
 .contenedor {
   width: 100%;
@@ -82,18 +86,17 @@ a { color: var(--azul); }
 .saltar {
   position: absolute;
   left: -999px;
-  background: var(--dorado);
-  color: var(--oscuro);
+  background: var(--amarillo);
+  color: var(--azul-profundo);
   padding: 0.5rem 1rem;
   z-index: 100;
 }
 .saltar:focus { left: 0; }
 
 /* Foco visible para quien navega con teclado */
-a:focus-visible, button:focus-visible, input:focus-visible,
-select:focus-visible, textarea:focus-visible {
-  outline: 3px solid var(--dorado);
-  outline-offset: 2px;
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--foco);
+  outline-offset: 3px;
 }
 
 /* ---------- 3. ENCABEZADO Y MENÚ (Flexbox) ---------- */
@@ -102,84 +105,79 @@ select:focus-visible, textarea:focus-visible {
   top: 0;
   z-index: 50;
   background: var(--blanco);
-  box-shadow: 0 2px 10px rgba(18, 48, 63, 0.08);
+  box-shadow: 0 2px 10px rgba(11, 74, 98, 0.10);
 }
 .encabezado__barra {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1.25rem;
+  padding: 0.6rem 1.25rem;
 }
-.marca {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  text-decoration: none;
-  font-family: var(--fuente-titulos);
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--azul);
-}
-.marca img { width: 44px; height: 44px; }
+/* El logo nunca baja de 120 px de ancho (tamaño mínimo del manual) */
+.marca img { height: 60px; width: auto; }
 
 .nav ul {
   display: flex;
+  align-items: center;
   gap: 1.75rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.nav a {
+.nav a:not(.boton) {
   text-decoration: none;
-  font-family: var(--fuente-titulos);
-  font-weight: 500;
-  color: var(--oscuro);
+  font-weight: var(--peso-medio);
+  color: var(--azul-profundo);
   padding: 0.4rem 0;
   border-bottom: 3px solid transparent;
   transition: color 0.2s, border-color 0.2s;
 }
-.nav a:hover { color: var(--azul); border-bottom-color: var(--dorado); }
+.nav a:not(.boton):hover { color: var(--azul-principal); border-bottom-color: var(--amarillo); }
 /* Página actual: el usuario siempre sabe dónde está */
-.nav a[aria-current="page"] { color: var(--azul); border-bottom-color: var(--azul); }
+.nav a[aria-current="page"] { color: var(--azul-principal); border-bottom-color: var(--amarillo); }
 
 /* Botón hamburguesa: solo visible en celular */
 .menu-boton {
   display: none;
   background: none;
-  border: 2px solid var(--azul);
+  border: 2px solid var(--azul-principal);
   border-radius: 10px;
-  padding: 0.4rem 0.7rem;
-  font-family: var(--fuente-titulos);
-  font-weight: 600;
-  color: var(--azul);
+  padding: 0.4rem 0.8rem;
+  font-family: var(--fuente);
+  font-weight: var(--peso-medio);
+  color: var(--azul-principal);
   cursor: pointer;
 }
 
 /* ---------- 4. BOTONES ---------- */
 .boton {
   display: inline-block;
-  font-family: var(--fuente-titulos);
-  font-weight: 600;
+  font-family: var(--fuente);
+  font-weight: var(--peso-medio);
   font-size: var(--tam-texto);
   text-decoration: none;
   text-align: center;
-  padding: 0.85rem 1.75rem;
+  padding: 0.8rem 1.75rem;
   border-radius: var(--radio-boton);
   border: 2px solid transparent;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.2s, color 0.2s;
 }
-/* Botón principal: dorado con texto oscuro (el contraste pasa AA) */
-.boton--principal { background: var(--dorado); color: var(--oscuro); }
-.boton--principal:hover { background: var(--dorado-hover); transform: translateY(-2px); }
+.boton--chico { padding: 0.55rem 1.25rem; }
+/* Botón de acción: SIEMPRE amarillo con texto azul profundo */
+.boton--principal { background: var(--amarillo); color: var(--azul-profundo); }
+.boton--principal:hover { background: var(--amarillo-hover); transform: translateY(-2px); }
 /* Botón secundario: contorno blanco sobre fondos azules */
 .boton--secundario { background: transparent; color: var(--blanco); border-color: var(--blanco); }
-.boton--secundario:hover { background: var(--blanco); color: var(--azul); }
+.boton--secundario:hover { background: var(--blanco); color: var(--azul-principal); }
 .botones { display: flex; flex-wrap: wrap; gap: 1rem; }
 
 /* ---------- 5. HERO Y SECCIONES ---------- */
+.hero,
+.banda { --foco: var(--blanco); }
+
 .hero {
-  background: linear-gradient(160deg, var(--azul), var(--turquesa));
+  background: var(--azul-principal);
   color: var(--blanco);
   padding: 4rem 0;
 }
@@ -191,32 +189,37 @@ select:focus-visible, textarea:focus-visible {
   align-items: center;
 }
 .hero__etiqueta {
-  font-family: var(--fuente-titulos);
-  font-weight: 500;
+  font-weight: var(--peso-medio);
   font-size: var(--tam-pequeno);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 0.75rem;
 }
-.hero p { font-size: 1.125rem; max-width: 34rem; }
+.hero p:not(.hero__etiqueta) { font-size: 1.125rem; max-width: 34rem; }
 .hero .botones { margin-top: 1.5rem; }
+.hero__imagen img {
+  width: 100%;
+  aspect-ratio: 406 / 340;
+  object-fit: cover;
+  border-radius: var(--radio);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
 .hero--pagina { padding: 3rem 0; text-align: center; }
-.hero--pagina p { margin-left: auto; margin-right: auto; }
+.hero--pagina p:not(.hero__etiqueta) { margin-left: auto; margin-right: auto; }
 
 .seccion { padding: 4rem 0; }
-.seccion--clara { background: var(--claro); }
+.seccion--niebla { background: var(--azul-niebla); }
 .seccion__encabezado { text-align: center; max-width: 40rem; margin: 0 auto 2.5rem; }
-.seccion__encabezado p { color: var(--texto-suave); }
 
 /* Franjas de color con mensaje central */
 .banda {
-  background: var(--azul);
+  background: var(--azul-profundo);
   color: var(--blanco);
   text-align: center;
   padding: 3.5rem 0;
 }
 .banda p { max-width: 38rem; margin: 0 auto 1.5rem; }
-.banda--turquesa { background: var(--turquesa); }
+.banda--principal { background: var(--azul-principal); }
 
 /* ---------- 6. TARJETAS (Grid) ---------- */
 .tarjetas {
@@ -224,30 +227,37 @@ select:focus-visible, textarea:focus-visible {
   grid-template-columns: repeat(4, 1fr);
   gap: 1.5rem;
 }
-.tarjetas--2 { grid-template-columns: repeat(2, 1fr); }
+.tarjetas--3 { grid-template-columns: repeat(3, 1fr); }
 .tarjeta {
   background: var(--blanco);
   border-radius: var(--radio);
-  padding: 1.75rem 1.5rem;
+  overflow: hidden;
   box-shadow: var(--sombra);
   transition: transform 0.2s, box-shadow 0.2s;
 }
-.tarjeta:hover { transform: translateY(-4px); box-shadow: 0 10px 26px rgba(18, 48, 63, 0.16); }
-.tarjeta p { color: var(--texto-suave); margin-bottom: 0; }
-.tarjeta__icono {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: var(--azul);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.tarjeta:hover { transform: translateY(-4px); box-shadow: 0 10px 26px rgba(11, 74, 98, 0.22); }
+.tarjeta img { width: 100%; aspect-ratio: 406 / 340; object-fit: cover; }
+.tarjetas--3 .tarjeta img { aspect-ratio: 520 / 488; object-fit: contain; background: var(--blanco); }
+.tarjeta__cuerpo { padding: 1.5rem; }
+/* Barra amarilla decorativa sobre cada título (sello del manual) */
+.tarjeta__cuerpo::before {
+  content: "";
+  display: block;
+  width: 3.75rem;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--amarillo);
   margin-bottom: 1rem;
 }
-.tarjeta__icono img { width: 28px; height: 28px; }
+.tarjeta__cuerpo p { margin-bottom: 0; }
+.tarjeta__extra {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid var(--azul-niebla);
+}
 .seccion__accion { text-align: center; margin-top: 2.5rem; }
-.seccion__accion .boton--secundario { color: var(--azul); border-color: var(--azul); }
-.seccion__accion .boton--secundario:hover { background: var(--azul); color: var(--blanco); }
+.seccion__accion .boton--secundario { color: var(--azul-principal); border-color: var(--azul-principal); }
+.seccion__accion .boton--secundario:hover { background: var(--azul-principal); color: var(--blanco); }
 
 /* ---------- 7. PÁGINAS INTERNAS ---------- */
 .dos-columnas {
@@ -257,14 +267,15 @@ select:focus-visible, textarea:focus-visible {
   align-items: start;
 }
 .destacado {
-  background: var(--azul);
+  --foco: var(--blanco);
+  background: var(--azul-principal);
   color: var(--blanco);
   border-radius: var(--radio);
   padding: 2rem;
 }
 .destacado p:last-child { margin-bottom: 0; }
 .cita {
-  border: 2px solid var(--azul);
+  border: 2px solid var(--azul-principal);
   border-radius: var(--radio);
   padding: 2rem;
 }
@@ -276,22 +287,28 @@ select:focus-visible, textarea:focus-visible {
   gap: 2.5rem;
   align-items: start;
 }
-.formulario { background: var(--claro); border-radius: var(--radio); padding: 2rem; }
+.formulario { background: var(--azul-niebla); border-radius: var(--radio); padding: 2rem; }
 .campo { margin-bottom: 1.25rem; }
-.campo label { display: block; font-weight: 700; margin-bottom: 0.35rem; }
+.campo label { display: block; font-weight: var(--peso-medio); margin-bottom: 0.35rem; }
 .campo input, .campo select, .campo textarea {
   width: 100%;
-  font-family: var(--fuente-texto);
+  font-family: var(--fuente);
   font-size: var(--tam-texto);
   padding: 0.7rem 0.9rem;
-  border: 2px solid var(--borde-campo);
+  border: 2px solid var(--azul-principal);
   border-radius: 10px;
   background: var(--blanco);
-  color: var(--oscuro);
+  color: var(--azul-profundo);
 }
-.campo input:hover, .campo select:hover, .campo textarea:hover { border-color: var(--azul); }
+.campo input:hover, .campo select:hover, .campo textarea:hover { border-color: var(--azul-profundo); }
+/* Estado de foco del manual: borde azul */
+.campo input:focus, .campo select:focus, .campo textarea:focus {
+  outline: none;
+  border-color: var(--azul-profundo);
+  box-shadow: 0 0 0 4px var(--azul-cielo);
+}
 .campo textarea { min-height: 130px; resize: vertical; }
-.mensaje-envio { margin-top: 1rem; font-weight: 700; color: var(--azul-hover); }
+.mensaje-envio { margin-top: 1rem; font-weight: var(--peso-medio); }
 .info-contacto ul { list-style: none; padding: 0; margin: 0 0 1.5rem; }
 .info-contacto li { margin-bottom: 0.75rem; }
 .redes { display: flex; gap: 0.75rem; }
@@ -299,39 +316,50 @@ select:focus-visible, textarea:focus-visible {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--azul);
+  background: var(--azul-principal);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s, transform 0.2s;
 }
-.redes a:hover { background: var(--turquesa); transform: translateY(-2px); }
+.redes a:hover { background: var(--azul-profundo); transform: translateY(-2px); }
 .redes img { width: 22px; height: 22px; }
 
-/* ---------- 8. PIE DE PÁGINA ---------- */
-.pie { background: var(--oscuro); color: var(--blanco); padding: 3rem 0 1.5rem; }
+/* ---------- 8. PIE DE PÁGINA Y BOTÓN FLOTANTE ---------- */
+.pie {
+  --foco: var(--blanco);
+  background: var(--azul-profundo);
+  color: var(--blanco);
+  padding: 3rem 0 1.5rem;
+}
 .pie__grid {
   display: grid;
   grid-template-columns: 1.3fr 1fr 1fr;
   gap: 2rem;
 }
-.pie h2 { font-size: var(--tam-h3); }
+.pie h2 { font-size: var(--tam-h3); font-weight: var(--peso-medio); }
+.pie__logo { height: 64px; width: auto; margin-bottom: 0.75rem; }
+.pie__descriptor {
+  font-size: var(--tam-pequeno);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 .pie a { color: var(--blanco); }
-.pie a:hover { color: var(--dorado); }
+.pie a:hover { color: var(--amarillo); }
 .pie ul { list-style: none; padding: 0; margin: 0; }
 .pie li { margin-bottom: 0.4rem; }
-.pie .redes a { background: var(--turquesa); }
-.pie .redes a:hover { background: var(--azul); }
+/* Íconos de redes en el pie: círculo blanco con ícono azul profundo */
+.pie .redes a { background: var(--blanco); }
+.pie .redes a:hover { background: var(--azul-cielo); }
 .pie__legal {
   margin-top: 2rem;
   padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  font-size: var(--tam-pequeno);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   text-align: center;
 }
-.pie__legal p { margin: 0; }
+.pie__legal p { margin: 0; font-size: var(--tam-pequeno); font-weight: var(--peso-ligero); }
 
-/* Botón flotante de WhatsApp: fijo en la esquina inferior derecha */
+/* Botón flotante de WhatsApp: acción principal, por eso es amarillo */
 .wpp-flotante {
   position: fixed;
   right: 1.25rem;
@@ -340,29 +368,30 @@ select:focus-visible, textarea:focus-visible {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: var(--whatsapp);
-  border: 3px solid var(--blanco); /* lo separa del pie oscuro */
-  box-shadow: 0 6px 18px rgba(18, 48, 63, 0.35);
+  background: var(--amarillo);
+  border: 3px solid var(--azul-profundo);
+  box-shadow: 0 6px 18px rgba(11, 74, 98, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.2s, transform 0.2s;
 }
 .wpp-flotante img { width: 30px; height: 30px; }
-.wpp-flotante:hover { background: var(--whatsapp-hover); transform: scale(1.08); }
+.wpp-flotante:hover { background: var(--amarillo-hover); transform: scale(1.08); }
 
 /* ---------- 9. RESPONSIVO ---------- */
 /* Tablet: las tarjetas pasan de 4 a 2 columnas y los bloques se apilan */
 @media (max-width: 900px) {
   .tarjetas { grid-template-columns: repeat(2, 1fr); }
+  .tarjetas--3 { grid-template-columns: repeat(3, 1fr); }
   .hero__grid, .dos-columnas, .contacto-grid, .pie__grid { grid-template-columns: 1fr; }
-  .hero__imagen { max-width: 420px; margin: 0 auto; }
+  .hero__imagen { max-width: 420px; }
 }
 
 /* Celular: tarjetas en 1 columna, menú hamburguesa y títulos más pequeños */
 @media (max-width: 720px) {
   :root { --tam-h1: 2rem; --tam-h2: 1.5rem; }
-  .tarjetas, .tarjetas--2 { grid-template-columns: 1fr; }
+  .tarjetas, .tarjetas--3 { grid-template-columns: 1fr; }
   .menu-boton { display: block; }
   .nav {
     display: none;
@@ -372,11 +401,12 @@ select:focus-visible, textarea:focus-visible {
     right: 0;
     background: var(--blanco);
     padding: 1rem 1.25rem 1.5rem;
-    box-shadow: 0 8px 16px rgba(18, 48, 63, 0.12);
+    box-shadow: 0 8px 16px rgba(11, 74, 98, 0.15);
   }
   .nav--abierto { display: block; }
-  .nav ul { flex-direction: column; gap: 0.5rem; }
-  .nav a { display: block; padding: 0.6rem 0; }
+  .nav ul { flex-direction: column; align-items: stretch; gap: 0.5rem; }
+  .nav a:not(.boton) { display: block; padding: 0.6rem 0; }
+  .nav .boton { display: block; margin-top: 0.5rem; }
   .hero { padding: 3rem 0; }
   .seccion { padding: 3rem 0; }
   .botones .boton { width: 100%; }
